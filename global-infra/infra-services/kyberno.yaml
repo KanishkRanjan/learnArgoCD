@@ -9,7 +9,7 @@ metadata:
   spec:
     project: default
     source:
-      reposeURL: https://github.com/demo-infra.git
+      repoURL: https://github.com/demo-infra.git
       targetRevision: main
       path: kyverno
       helm:
@@ -25,3 +25,4 @@ metadata:
       syncOptions:
         - CreateNamespace=true
         - ApplyOutOfSyncOnly=true
+        - ServerSideApply=true
