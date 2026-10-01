@@ -3,23 +3,23 @@ kind: Application
 metadata:
   name: kyverno
   namespace: argocd
-  annotations: 
+  annotations:
     argocd.argoproj.io/sync-wave: "1"
-    argocd.argoproj.io/compare-options: ServiceSideDiff=true,IncludeMutationWebhook=true 
+    argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
   spec:
     project: default
     source:
-      reposeURL: https://github.com/demo-infra.git 
+      reposeURL: https://github.com/demo-infra.git
       targetRevision: main
       path: kyverno
       helm:
         valueFiles:
           - values.yaml
     destination:
-      server: https://kubernetes.default.svc 
+      server: https://kubernetes.default.svc
       namespace: kyverno
-    syncPolicy: 
-      automated: 
+    syncPolicy:
+      automated:
         prune: true
         selfHeal: true
       syncOptions:
