@@ -8,9 +8,9 @@ metadata:
 spec: 
   project: default
   source: 
-    repoURL: https://github.com/demo-infra.git 
+    repoURL: https://github.com/KanishkRanjan/learnArgoCD.git 
     targetRevision: main 
-    path: kyverno-policies 
+    path: global-infra/kyverno-policies 
     helm: 
       valueFiles:
        - values.yaml 

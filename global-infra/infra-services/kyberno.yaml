@@ -6,23 +6,23 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
-  spec:
-    project: default
-    source:
-      repoURL: https://github.com/demo-infra.git
-      targetRevision: main
-      path: kyverno
-      helm:
-        valueFiles:
-          - values.yaml
-    destination:
-      server: https://kubernetes.default.svc
-      namespace: kyverno
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-      syncOptions:
-        - CreateNamespace=true
-        - ApplyOutOfSyncOnly=true
-        - ServerSideApply=true
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/KanishkRanjan/learnArgoCD.git
+    targetRevision: main
+    path: global-infra/kyverno
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kyverno
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+      - ServerSideApply=true
